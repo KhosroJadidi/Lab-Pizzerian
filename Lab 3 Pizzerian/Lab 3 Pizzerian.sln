@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab 3 Pizzerian", "Lab 3 Pizzerian\Lab 3 Pizzerian.csproj", "{1A8C6B52-0E3E-44AB-89EB-76A22C6A6F2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A8C6B52-0E3E-44AB-89EB-76A22C6A6F2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8C6B52-0E3E-44AB-89EB-76A22C6A6F2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A8C6B52-0E3E-44AB-89EB-76A22C6A6F2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A8C6B52-0E3E-44AB-89EB-76A22C6A6F2A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {17345AF3-E043-4ED7-926B-B3E447DBC66D}
+	EndGlobalSection
+EndGlobal
