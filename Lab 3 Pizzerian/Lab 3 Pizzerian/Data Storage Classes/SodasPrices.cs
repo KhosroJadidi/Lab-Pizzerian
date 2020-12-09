@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Lab_3_Pizzerian.DataStorageClasses
 {
-    public class SodasPrices
+    internal static class SodasPrices
     {
-        public int Coca_Cola { get; } = 20;
-        public int Fanta { get; } = 20;
-        public int Sprite { get; } = 25;
+        internal static int Coca_Cola { get; } = 20;
+        internal static int Fanta { get; } = 20;
+        internal static int Sprite { get; } = 25;
     }
 }

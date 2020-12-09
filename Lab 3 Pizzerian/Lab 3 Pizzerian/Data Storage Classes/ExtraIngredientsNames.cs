@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Lab_3_Pizzerian.DataStorageClasses
 {
-    public class ExtraIngredientsNames
+    internal static class ExtraIngredientsNames
     {
-        public string Ham { get; } = "Ham";
-        public string Pineapple { get; } = "Pineapple";
-        public string Mushrooms { get; } = "Mushrooms";
-        public string Onion { get; } = "Onion";
-        public string Kebab_Sauce { get; } = "Kebab Sauce";
-        public string Shrimp { get; } = "Shrimp";
-        public string Mussels { get; } = "Mussels";
-        public string Artichoke { get; } = "Artichoke";
-        public string Kebab { get; } = "Kebab";
-        public string Coriander { get; } = "Coriander";
+        internal static string Ham { get; } = "Ham";
+        internal static string Pineapple { get; } = "Pineapple";
+        internal static string Mushrooms { get; } = "Mushrooms";
+        internal static string Onion { get; } = "Onion";
+        internal static string Kebab_Sauce { get; } = "Kebab Sauce";
+        internal static string Shrimp { get; } = "Shrimp";
+        internal static string Mussels { get; } = "Mussels";
+        internal static string Artichoke { get; } = "Artichoke";
+        internal static string Kebab { get; } = "Kebab";
+        internal static string Coriander { get; } = "Coriander";
     }
 }

@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace Lab_3_Pizzerian.DataStorageClasses
 {
-    public class PizzaIngredientsNames
+    internal static class PizzaIngredientsNames
     {
-        public string Cheese { get; } = "Cheese";
-        public string Tomato_Sauce { get; } = "Tomato Sauce";
-        public string Ham { get; } = "Ham";
-        public string Pineapple { get; } = "Pineapple";
-        public string Kebab { get; } = "Kebab";
-        public string Mushrooms { get; } = "Mushrooms";
-        public string Onion { get; } = "Onion";
-        public string Feferoni { get; } = "Feferoni";
-        public string Iceberg_lettuce { get; } = "Iceberg lettuce";
-        public string Kebab_Sauce { get; } = "Kebab Sauce";
-        public string Mussels { get; } = "Mussels";
-        public string Shrimp { get; } = "Shrimp";
-        public string Artichoke { get; } = "Artichoke";
+        internal static string Cheese { get; } = "Cheese";
+        internal static string Tomato_Sauce { get; } = "Tomato Sauce";
+        internal static string Ham { get; } = "Ham";
+        internal static string Pineapple { get; } = "Pineapple";
+        internal static string Kebab { get; } = "Kebab";
+        internal static string Mushrooms { get; } = "Mushrooms";
+        internal static string Onion { get; } = "Onion";
+        internal static string Feferoni { get; } = "Feferoni";
+        internal static string Iceberg_lettuce { get; } = "Iceberg lettuce";
+        internal static string Kebab_Sauce { get; } = "Kebab Sauce";
+        internal static string Mussels { get; } = "Mussels";
+        internal static string Shrimp { get; } = "Shrimp";
+        internal static string Artichoke { get; } = "Artichoke";
 
         //TODO: Add properties (or methods) for returning the ingredients of each pizza.(Repository Pattern?)
     }
