@@ -26,27 +26,47 @@ namespace PizzerianTests
         }
 
         [TestMethod]
-        public static void AskForPizzaTest()
+        public void AskForPizzaTest()
         {
-
+            using var stringWriter = new StringWriter();
+            Console.SetOut(stringWriter);
+            MessageHandlers.AskForPizza();
+            var expected = "Which pizza would u like to order?";
+            var actual = stringWriter.ToString();
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public static void AskForExtrasTest()
+        public void AskForExtrasTest()
         {
-
+            using var stringWriter = new StringWriter();
+            Console.SetOut(stringWriter);
+            MessageHandlers.AskForExtras();
+            var expected = "Would you like to add extra ingredients to your pizza?";
+            var actual = stringWriter.ToString();
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public static void AskForDrinksTest()
+        public  void AskForDrinksTest()
         {
-
+            using var stringWriter = new StringWriter();
+            Console.SetOut(stringWriter);
+            MessageHandlers.AskForDrinks();
+            var expected = "Would you like to add a drink to your order?";
+            var actual = stringWriter.ToString();
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public static void AskForNextStepTest()
+        public  void AskForNextStepTest()
         {
-
+            using var stringWriter = new StringWriter();
+            Console.SetOut(stringWriter);
+            MessageHandlers.AskForNextStep();
+            var expected = "What would you like to do next?";
+            var actual = stringWriter.ToString();
+            Assert.AreEqual(expected, actual);
         }
     }
 }
