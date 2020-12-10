@@ -3,6 +3,6 @@
     public class Ingredient
     {
         public string Name { get; init; }
-        public int PriceAsExtra { get; init; }
+        public int PriceAsExtra { get; init; } = 0;
     }
 }

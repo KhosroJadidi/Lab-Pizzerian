@@ -15,7 +15,7 @@ namespace Lab_3_Pizzerian.DataStorageClasses
                 Ingredients = new List<Ingredient>()
                 {
                     Ingredients.Cheese,
-                    Ingredients.Tomato_Sauce
+                    Ingredients.TomatoSauce
                 }
             };
         public static Pizza Hawaii { get; } =
@@ -26,7 +26,7 @@ namespace Lab_3_Pizzerian.DataStorageClasses
                 Ingredients = new List<Ingredient>()
                 {
                     Ingredients.Cheese,
-                    Ingredients.Tomato_Sauce,
+                    Ingredients.TomatoSauce,
                     Ingredients.Ham,
                     Ingredients.Pineapple
                 }
@@ -39,14 +39,14 @@ namespace Lab_3_Pizzerian.DataStorageClasses
                 Ingredients = new List<Ingredient>()
                 {
                     Ingredients.Cheese,
-                    Ingredients.Tomato_Sauce,
+                    Ingredients.TomatoSauce,
                     Ingredients.Kebab,
                     Ingredients.Mushrooms,
                     Ingredients.Onion,
                     Ingredients.Feferoni,
-                    Ingredients.Iceberg_lettuce,
+                    Ingredients.Iceberglettuce,
                     Ingredients.Tomato,
-                    Ingredients.Kebab_Sauce
+                    Ingredients.KebabSauce
                 }
             };
         public static Pizza Quattro_Stadioni { get; } =
@@ -57,7 +57,7 @@ namespace Lab_3_Pizzerian.DataStorageClasses
                 Ingredients = new List<Ingredient>()
                 {
                     Ingredients.Cheese,
-                    Ingredients.Tomato_Sauce,
+                    Ingredients.TomatoSauce,
                     Ingredients.Ham,
                     Ingredients.Shrimp,
                     Ingredients.Mussels,

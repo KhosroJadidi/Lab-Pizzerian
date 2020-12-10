@@ -6,7 +6,7 @@ namespace Lab_3_Pizzerian
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
