@@ -1,12 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Lab_3_Pizzerian.Viewer;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Lab_3_Pizzerian.Viewer;
-using System.Diagnostics;
 
 namespace PizzerianTests
 {
@@ -48,7 +43,7 @@ namespace PizzerianTests
         }
 
         [TestMethod]
-        public  void AskForDrinksTest()
+        public void AskForDrinksTest()
         {
             using var stringWriter = new StringWriter();
             Console.SetOut(stringWriter);
@@ -59,7 +54,7 @@ namespace PizzerianTests
         }
 
         [TestMethod]
-        public  void AskForNextStepTest()
+        public void AskForNextStepTest()
         {
             using var stringWriter = new StringWriter();
             Console.SetOut(stringWriter);

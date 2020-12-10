@@ -11,10 +11,10 @@ namespace PizzerianTests
         {
             var pizzeria = OrderFactory.Pizzeria;
             string orderId = pizzeria.PlaceOrder();
-            //? Get pizza by observer pattern? 
+            //? Get pizza by observer pattern?
             // Order order = pizzeria.FetchOrder(orderId) after notice
             // Assert.AreEqual(Order, typeof(order)) after 3 seconds
-            // Assert.AreEqual(totalPrice, order.TotalPrice) 
+            // Assert.AreEqual(totalPrice, order.TotalPrice)
         }
     }
 }

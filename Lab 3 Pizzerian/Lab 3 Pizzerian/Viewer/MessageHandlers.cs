@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab_3_Pizzerian.Viewer
 {
@@ -14,6 +10,7 @@ namespace Lab_3_Pizzerian.Viewer
                 "\nWhat would you like to order?";
             Console.Write(welcomeMessage);
         }
+
         public static void AskForPizza()
         {
             var welcomeMessage = "Which pizza would u like to order?";
