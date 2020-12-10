@@ -4,10 +4,10 @@ using Lab_3_Pizzerian.Models.StockItems;
 
 namespace Lab_3_Pizzerian.Models.Orders
 {
-    internal class OrderRow
+    public class OrderRow
     {
         //! Row id should start from 1.
-        public int rowId { get; set; }
+        public int RowId { get; set; }
         public Pizza Pizza { get; set; }
         public Soda Soda { get; set; }
     }

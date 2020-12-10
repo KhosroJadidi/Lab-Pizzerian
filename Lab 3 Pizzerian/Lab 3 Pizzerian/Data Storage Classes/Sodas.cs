@@ -2,7 +2,7 @@
 
 namespace Lab_3_Pizzerian.DataStorageClasses
 {
-    static class Sodas
+    public static class Sodas
     {
         public static Soda CocaCola { get; } =
             new Soda

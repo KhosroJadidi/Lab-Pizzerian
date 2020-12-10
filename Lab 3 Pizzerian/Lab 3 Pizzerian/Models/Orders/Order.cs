@@ -9,6 +9,6 @@ namespace Lab_3_Pizzerian.Models.Orders
         public int Id { get; set; }
         public DateTime Date { get; } = DateTime.Now;
         public string CustomersName { get; set; }
-        internal List<OrderRow> OrderRows { get; set; }
+        public List<OrderRow> OrderRows { get; set; }
     }
 }

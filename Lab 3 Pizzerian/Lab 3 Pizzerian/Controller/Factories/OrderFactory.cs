@@ -8,12 +8,17 @@ namespace Lab_3_Pizzerian.Controller
     public sealed class OrderFactory
     {
         private readonly List<Order> placedOrders = new List<Order>();
-
+        private int orderId = 1;
         private OrderFactory()
         {
         }
 
-        public static OrderFactory Pizzeria { get; } = new OrderFactory();
+        public static OrderFactory Factory { get; } = new OrderFactory();
+
+        public object CreateOrder(string v, object firstOrderRows)
+        {
+            throw new System.NotImplementedException();
+        }
 
         public string PlaceOrder()
         {
@@ -43,6 +48,18 @@ namespace Lab_3_Pizzerian.Controller
             // return i.e. null if argumentnullexeption
             // log order to database
             placedOrders.Remove(order);
+            return order;
+        }
+
+        public Order CreateOrder(string customerName, List<OrderRow> OrderRows)
+        {
+            var order = new Order
+            {
+                Id = orderId,
+                CustomersName = customerName,
+                OrderRows = OrderRows
+            };
+            orderId++;
             return order;
         }
     }
