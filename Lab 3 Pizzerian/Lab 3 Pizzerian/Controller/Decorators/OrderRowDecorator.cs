@@ -1,4 +1,5 @@
-﻿using Lab_3_Pizzerian.Models.Orders;
+﻿using Lab_3_Pizzerian.DataStorageClasses;
+using Lab_3_Pizzerian.Models.Orders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +16,16 @@ namespace Lab_3_Pizzerian.Controller.Decorators
         public static OrderRowDecorator RowDecorator { get; } =
             new OrderRowDecorator();
 
-        /*TODO:It's possible to use the row id as well, if a list of
-         all order rows is created inside this class.*/ 
         public OrderRow UpdateOrderRow(OrderRow initialOrderRow, OrderRow replacementOrderRow)
         {
+            initialOrderRow.Pizza = replacementOrderRow.Pizza;
+            initialOrderRow.Soda = replacementOrderRow.Soda;
+            return initialOrderRow;
+        }
+        public OrderRow UpdateOrderRow(int orderRowId, OrderRow replacementOrderRow)
+        {
+            var initialOrderRow = OrderRows.Rows
+                .SingleOrDefault(orderRow => orderRow.RowId == orderRowId);
             initialOrderRow.Pizza = replacementOrderRow.Pizza;
             initialOrderRow.Soda = replacementOrderRow.Soda;
             return initialOrderRow;
