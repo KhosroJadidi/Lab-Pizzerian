@@ -19,7 +19,13 @@ namespace PizzerianTests
         {
             var sut = OrderFactory.Factory;
             var actual = sut.CreateOrder("Anders", firstOrderRows);
-            Assert.AreEqual(firstOrderRows, actual.OrderRows);
+            var ordersContainsOrder = Orders.OrdersList
+                .Contains(actual);
+            Assert.IsTrue(ordersContainsOrder);
+            var orderIdIsUnique = Orders.OrdersList
+                .FindAll(orders => orders.Id == actual.Id)
+                .Count == 1;
+            Assert.IsTrue(orderIdIsUnique);
         }
 
         #region Test Data Repository

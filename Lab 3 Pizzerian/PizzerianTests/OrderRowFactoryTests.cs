@@ -20,6 +20,23 @@ namespace PizzerianTests
         //}
 
         [TestMethod]
+        public void CreateOrderRowTest()
+        {
+            var sut = OrderRowFactory.RowFactory;
+            var pizza = Pizzas.Hawaii;
+            var soda = Sodas.CocaCola;
+            var actual = sut.CreateOrderRow(pizza, soda);
+            var orderRowsContainsOrder = OrderRows.Rows
+                .Contains(actual);
+            Assert.IsTrue(orderRowsContainsOrder);
+            var orderRowIdIsUnique = OrderRows.Rows
+                .FindAll(orderRows => orderRows.RowId == actual.RowId)
+                .Count == 1;
+            Assert.IsTrue(orderRowIdIsUnique);
+        }
+
+        //TODO: The functionality of this test is contained within the above test. Remove it.
+        [TestMethod]
         public void OrderRowsTest()
         {
             var sut = OrderRowFactory.RowFactory;
@@ -36,20 +53,6 @@ namespace PizzerianTests
             Assert.IsTrue(orderRowIsSubmitted);
         }
 
-        [TestMethod]
-        public void CreateOrderRowTest()
-        {
-            var sut = OrderRowFactory.RowFactory;
-            var pizza = Pizzas.Hawaii;
-            var soda = Sodas.CocaCola;
-            var actual = sut.CreateOrderRow(pizza, soda);
-            var orderRowsContainsOrder = OrderRows.Rows
-                .Contains(actual);
-            Assert.IsTrue(orderRowsContainsOrder);
-            var orderIdIsUnique = OrderRows.Rows
-                .FindAll(orderRows => orderRows.RowId == actual.RowId)
-                .Count == 1;
-            Assert.IsTrue(orderIdIsUnique);
-        }
+        
     }
 }
