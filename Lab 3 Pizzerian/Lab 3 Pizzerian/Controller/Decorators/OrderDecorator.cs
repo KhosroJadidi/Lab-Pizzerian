@@ -1,4 +1,5 @@
-﻿using Lab_3_Pizzerian.Models.Orders;
+﻿using Lab_3_Pizzerian.DataStorageClasses;
+using Lab_3_Pizzerian.Models.Orders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,15 @@ namespace Lab_3_Pizzerian.Controller.Decorators
         public static OrderDecorator Decorator { get; set; } =
             new OrderDecorator();
 
-        //TODO: perhaps add the ability to delete on order row with only id. make a list of all orders here.
-        public Order DeleteOrderRow(Order order, OrderRow rowToDelete)
+        public void DeleteOrderRow(Order givenOrder, OrderRow rowToDelete)
         {
-            order.OrderRows.Remove(rowToDelete);
-            return order;                
+            Orders.OrdersList.Find(order => order == givenOrder)
+                .OrderRows.Remove(rowToDelete);                    
+        }
+        public void DeleteOrderRow(int givenOrder, OrderRow rowToDelete)
+        {
+            Orders.OrdersList.Find(order => order.Id == givenOrder)
+                .OrderRows.Remove(rowToDelete);
         }
     }
 }

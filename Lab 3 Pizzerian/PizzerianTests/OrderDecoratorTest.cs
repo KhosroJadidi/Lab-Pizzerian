@@ -6,6 +6,7 @@ using Lab_3_Pizzerian.Models.Orders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,33 +17,53 @@ namespace PizzerianTests
     public class OrderDecoratorTest
     {
         [TestMethod]
-        public void DeleteOrderRowTest()
+        public void DeleteOrderRowByRowTest()
         {
-            var order = OrderFactory.Factory
-                .CreateOrder("Anders", firstOrderRows);
-            var rowToDelete = firstOrderRows
-                .Single(row => row.RowId == firstOrderRows[0].RowId);
             var sut = OrderDecorator.Decorator;
-            var actual= sut.DeleteOrderRow(order,rowToDelete);
-            var expected = OrderFactory.Factory
-                .CreateOrder("Anders", secondOrderRows);
-            Assert.AreEqual
-                (
-                    expected.OrderRows[0].Pizza,
-                    actual.OrderRows[0].Pizza
-                );
-            Assert.AreEqual
-                (
-                    expected.OrderRows[0].Soda,
-                    actual.OrderRows[0].Soda
-                );
+            OrderFactory.Factory
+                .CreateOrder("Anders", firstOrderRows);
+            Orders.OrdersList.ForEach(order =>
+                {
+                    Trace.WriteLine(order.Id);
+                    Trace.WriteLine(order.CustomersName);
+                    order.OrderRows.ForEach(orderRow =>
+                        {
+                            Trace.WriteLine(orderRow.RowId);
+                            Trace.WriteLine(orderRow.Pizza.Name);
+                            Trace.WriteLine(orderRow.Soda.Name);
+                        });
+                });
+            var targetOrder = Orders.OrdersList[0];
+            var targetOrderRow = targetOrder.OrderRows[0];
+            sut.DeleteOrderRow(targetOrder, targetOrderRow);
+            var targetOrderRowIsDeleted = !Orders.OrdersList[0]
+                .OrderRows.Contains(targetOrderRow);
+            Assert.IsTrue(targetOrderRowIsDeleted);
+        }
 
-            //TODO:rowIds change. either ignore theme or add a central list for both orders and order rows in order to prevent this from happening. Adding a central list is recommended.
-            //Assert.AreEqual
-            //    (
-            //        expected.OrderRows[0].RowId,
-            //        actual.OrderRows[0].RowId
-            //    );
+        [TestMethod]
+        public void DeleteOrderRowByIdTest()
+        {
+            var sut = OrderDecorator.Decorator;
+            OrderFactory.Factory
+                .CreateOrder("Anders", firstOrderRows);
+            Orders.OrdersList.ForEach(order =>
+            {
+                Trace.WriteLine(order.Id);
+                Trace.WriteLine(order.CustomersName);
+                order.OrderRows.ForEach(orderRow =>
+                {
+                    Trace.WriteLine(orderRow.RowId);
+                    Trace.WriteLine(orderRow.Pizza.Name);
+                    Trace.WriteLine(orderRow.Soda.Name);
+                });
+            });
+            var targetOrder = Orders.OrdersList[0];
+            var targetOrderRow = targetOrder.OrderRows[0];
+            sut.DeleteOrderRow(targetOrder.Id, targetOrderRow);
+            var targetOrderRowIsDeleted = !Orders.OrdersList[0]
+                .OrderRows.Contains(targetOrderRow);
+            Assert.IsTrue(targetOrderRowIsDeleted);
         }
 
         #region Test Data Repository

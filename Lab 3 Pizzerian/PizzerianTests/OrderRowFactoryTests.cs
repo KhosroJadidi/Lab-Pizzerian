@@ -35,23 +35,7 @@ namespace PizzerianTests
             Assert.IsTrue(orderRowIdIsUnique);
         }
 
-        //TODO: The functionality of this test is contained within the above test. Remove it.
-        [TestMethod]
-        public void OrderRowsTest()
-        {
-            var sut = OrderRowFactory.RowFactory;
-            var pizza = Pizzas.Hawaii;
-            var soda = Sodas.Fanta;
-            var createdOrderRow = sut.CreateOrderRow(pizza, soda);
-            var orderRowIsSubmitted = OrderRows.Rows.Contains(createdOrderRow);
-            OrderRows.Rows.ForEach(orderRow =>
-            {
-                Trace.WriteLine(orderRow.RowId);
-                Trace.WriteLine(orderRow.Pizza.Name);
-                Trace.WriteLine(orderRow.Soda.Name);
-            });
-            Assert.IsTrue(orderRowIsSubmitted);
-        }
+        
 
         
     }
