@@ -1,4 +1,5 @@
-﻿using Lab_3_Pizzerian.Models.Orders;
+﻿using Lab_3_Pizzerian.DataStorageClasses;
+using Lab_3_Pizzerian.Models.Orders;
 using Lab_3_Pizzerian.Models.Products;
 using Lab_3_Pizzerian.Models.StockItems;
 using System;
@@ -27,6 +28,7 @@ namespace Lab_3_Pizzerian.Controller.Factories
                 Pizza = pizza,
                 Soda = soda
             };
+            OrderRows.Rows.Add(orderRow);
             rowId++;
             return orderRow;
         }

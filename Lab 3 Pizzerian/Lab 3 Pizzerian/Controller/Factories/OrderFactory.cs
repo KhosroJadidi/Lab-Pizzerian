@@ -1,4 +1,5 @@
-﻿using Lab_3_Pizzerian.Models.Orders;
+﻿using Lab_3_Pizzerian.DataStorageClasses;
+using Lab_3_Pizzerian.Models.Orders;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -59,6 +60,7 @@ namespace Lab_3_Pizzerian.Controller
                 CustomersName = customerName,
                 OrderRows = OrderRows
             };
+            Orders.OrdersList.Add(order);
             orderId++;
             return order;
         }

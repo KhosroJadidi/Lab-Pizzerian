@@ -1,8 +1,7 @@
-using Lab_3_Pizzerian.Controller;
 using Lab_3_Pizzerian.Controller.Factories;
 using Lab_3_Pizzerian.DataStorageClasses;
-using Lab_3_Pizzerian.Models.Orders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 namespace PizzerianTests
 {
@@ -20,23 +19,37 @@ namespace PizzerianTests
         //    // Assert.AreEqual(totalPrice, order.TotalPrice)
         //}
 
-        //Todo: rowids don't match, use a central for order rows and orders to fix this.
+        [TestMethod]
+        public void OrderRowsTest()
+        {
+            var sut = OrderRowFactory.RowFactory;
+            var pizza = Pizzas.Hawaii;
+            var soda = Sodas.Fanta;
+            var createdOrderRow = sut.CreateOrderRow(pizza, soda);
+            var orderRowIsSubmitted = OrderRows.Rows.Contains(createdOrderRow);
+            OrderRows.Rows.ForEach(orderRow =>
+            {
+                Trace.WriteLine(orderRow.RowId);
+                Trace.WriteLine(orderRow.Pizza.Name);
+                Trace.WriteLine(orderRow.Soda.Name);
+            });
+            Assert.IsTrue(orderRowIsSubmitted);
+        }
+
         [TestMethod]
         public void CreateOrderRowTest()
         {
-            var sur = OrderRowFactory.RowFactory;
+            var sut = OrderRowFactory.RowFactory;
             var pizza = Pizzas.Hawaii;
             var soda = Sodas.CocaCola;
-            var actual= sur.CreateOrderRow(pizza, soda);
-            var expected = new OrderRow
-            {
-                //RowId = 1,
-                Pizza = pizza,
-                Soda = soda
-            };
-            //Assert.AreEqual(1, actual.RowId);
-            Assert.AreEqual(expected.Pizza, actual.Pizza);
-            Assert.AreEqual(expected.Soda, actual.Soda);
+            var actual = sut.CreateOrderRow(pizza, soda);
+            var orderRowsContainsOrder = OrderRows.Rows
+                .Contains(actual);
+            Assert.IsTrue(orderRowsContainsOrder);
+            var orderIdIsUnique = OrderRows.Rows
+                .FindAll(orderRows => orderRows.RowId == actual.RowId)
+                .Count == 1;
+            Assert.IsTrue(orderIdIsUnique);
         }
     }
 }
