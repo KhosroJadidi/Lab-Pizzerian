@@ -65,9 +65,9 @@ namespace PizzerianTests
             MessageHandlers.AskForDrinks();
             var expected = "\n\nWould you like to add a drink to your order?";
             var sodas = Sodas.SodaNames;
-            foreach (var soda in sodas)
+            for (int i = 0; i < sodas.Length; i++)
             {
-                expected += $"\n{soda}";
+                expected += $"\n{sodas[i]} ({i})";
             }
             expected += "\n";
             var actual = stringWriter.ToString();

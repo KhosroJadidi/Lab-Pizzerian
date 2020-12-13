@@ -43,9 +43,9 @@ namespace Lab_3_Pizzerian.Viewer
         {
             var message = "\n\nWould you like to add a drink to your order?";
             var sodas = Sodas.SodaNames;
-            foreach (var soda in sodas)
+            for (int i = 0; i < sodas.Length; i++)
             {
-                message += $"\n{soda}";
+                message += $"\n{sodas[i]} ({i})";
             }
             message += "\n";
             Console.Write(message);
