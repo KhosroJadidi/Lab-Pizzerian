@@ -10,26 +10,18 @@ namespace Lab_3_Pizzerian.Viewer
         public static void PrintWelcome()
         {
             var message = "Hello!" +
-                "\nWelcome to our pizzeria!";
+                "\nWelcome to our pizzeria!" +
+                "\nPlease enter the corresponding number and press ENTER.";
             Console.Write(message);
-        }
-
-        public static void ShowAvailableOptions()
-        {
-            var options = "\n\nPlease enter the corresponding number." +
-                "\n\nPizza(0)" +
-                "\nDrink(1)" +
-                "\n\nFinalize all orders(Y)" +
-                "\nCancel all orders(N)";
-            Console.Write(options);
         }
 
         public static void AskForPizza()
         {
             var message = "\n\nWhich pizza would u like to order?";
-            foreach (var pizza in Pizzas.PizzaNames)
+            var pizzas = Pizzas.PizzaNames;
+            for (int i = 0; i < pizzas.Length; i++)
             {
-                message += $"\n{pizza}";
+                message += $"\n{pizzas[i]} ({i})";
             }
             message += "\n";
             Console.Write(message);
@@ -39,9 +31,9 @@ namespace Lab_3_Pizzerian.Viewer
         {
             var message = "\n\nWould you like to add extra ingredients to your pizza?";
             var extras = Ingredients.GetExtra();
-            foreach (var extra in extras)
+            for (int i = 0; i < extras.Length; i++)
             {
-                message += $"\n{extra}";
+                message += $"\n{extras[i]} ({i})";
             }
             message += "\n";
             Console.Write(message);

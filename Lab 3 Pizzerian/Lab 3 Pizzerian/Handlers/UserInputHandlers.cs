@@ -4,11 +4,9 @@ namespace Lab_3_Pizzerian.Handlers
 {
     public static class UserInputHandlers
     {
-        public static ConsoleKeyInfo GetUserInput()
+        public static string GetUserInput()
         {
-            return Console.ReadKey(true);
+            return Console.ReadLine();
         }
-
-
     }
 }

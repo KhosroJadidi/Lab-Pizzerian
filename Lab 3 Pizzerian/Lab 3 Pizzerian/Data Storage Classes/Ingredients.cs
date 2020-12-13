@@ -125,11 +125,12 @@ namespace Lab_3_Pizzerian.Data_Storage_Classes
             None
         };
 
-        public static IEnumerable<string> GetExtra()
+        public static string[] GetExtra()
         {
             return Extras.Where(ing => ing.PriceAsExtra != 0)
                 .Append(None)
-                .Select(ex => ex.Name.ToString());
+                .Select(ex => ex.Name.ToString())
+                .ToArray();
         }
     }
 }

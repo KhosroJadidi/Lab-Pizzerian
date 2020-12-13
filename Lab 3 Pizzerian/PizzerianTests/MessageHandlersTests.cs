@@ -17,22 +17,8 @@ namespace PizzerianTests
             Console.SetOut(stringWriter);
             MessageHandlers.PrintWelcome();
             var expected = "Hello!" +
-                "\nWelcome to our pizzeria!";
-            var actual = stringWriter.ToString();
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void ShowAvailableOptionsTest()
-        {
-            using var stringWriter = new StringWriter();
-            Console.SetOut(stringWriter);
-            MessageHandlers.ShowAvailableOptions();
-            var expected = "\n\nPlease enter the corresponding number." +
-                "\n\nPizza(0)" +
-                "\nDrink(1)" +
-                "\n\nFinalize all orders(Y)" +
-                "\nCancel all orders(N)";
+                "\nWelcome to our pizzeria!" +
+                "\nPlease enter the corresponding number and press ENTER.";
             var actual = stringWriter.ToString();
             Assert.AreEqual(expected, actual);
         }
@@ -44,9 +30,10 @@ namespace PizzerianTests
             Console.SetOut(stringWriter);
             MessageHandlers.AskForPizza();
             var expected = "\n\nWhich pizza would u like to order?";
-            foreach (var pizza in Pizzas.PizzaNames)
+            var pizzas = Pizzas.PizzaNames;
+            for (int i = 0; i < pizzas.Length; i++)
             {
-                expected += $"\n{pizza}";
+                expected += $"\n{pizzas[i]} ({i})";
             }
             expected += "\n";
             var actual = stringWriter.ToString();
@@ -61,9 +48,9 @@ namespace PizzerianTests
             MessageHandlers.AskForExtras();
             var expected = "\n\nWould you like to add extra ingredients to your pizza?";
             var extras = Ingredients.GetExtra();
-            foreach (var extra in extras)
+            for (int i = 0; i < extras.Length; i++)
             {
-                expected += $"\n{extra}";
+                expected += $"\n{extras[i]} ({i})";
             }
             expected += "\n";
             var actual = stringWriter.ToString();

@@ -10,17 +10,14 @@ namespace PizzerianTests
     [TestClass]
     public class UserInputHandlersTests
     {
-        //TODO:fix this test in future.
-        [Ignore]
         [TestMethod]
         public void GetUserInputTest()
         {
             using var stringReader
-                = new StringReader("D0");
+                = new StringReader("Hello");
             Console.SetIn(stringReader);
-            var expected = "D0";
-            var actual = UserInputHandlers.GetUserInput()
-                .ToString();
+            var expected = "Hello";
+            var actual = UserInputHandlers.GetUserInput();
             Assert.AreEqual(expected, actual);
         }
     }
