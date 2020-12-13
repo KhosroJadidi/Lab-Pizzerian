@@ -65,5 +65,22 @@ namespace Lab_3_Pizzerian.DataStorageClasses
                     Ingredients.Artichoke
                 }
             };
+        public static Pizza None { get; } =
+            new Pizza
+            {
+                Name = "None",
+                Price = 0,
+                Ingredients = new List<Ingredient>()
+                {}                                    
+            };
+        public static string[] PizzaNames =>
+            new [] 
+            {
+                Margerita.Name,
+                Hawaii.Name,
+                Kebab_Pizza.Name,
+                Quattro_Stadioni.Name,
+                None.Name
+            };
     }
 }

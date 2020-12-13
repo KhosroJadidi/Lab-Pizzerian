@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Lab_3_Pizzerian.Data_Storage_Classes;
+using Lab_3_Pizzerian.DataStorageClasses;
+using Lab_3_Pizzerian.Models.Orders;
+using System;
 
 namespace Lab_3_Pizzerian.Viewer
 {
@@ -6,33 +9,60 @@ namespace Lab_3_Pizzerian.Viewer
     {
         public static void PrintWelcome()
         {
-            var welcomeMessage = "Hello!" +
-                "\nWhat would you like to order?";
-            Console.Write(welcomeMessage);
+            var message = "Hello!" +
+                "\nWelcome to our pizzeria!";
+            Console.Write(message);
+        }
+
+        public static void ShowAvailableOptions()
+        {
+            var options = "\n\nPlease enter the corresponding number." +
+                "\n\nPizza(0)" +
+                "\nDrink(1)" +
+                "\n\nFinalize all orders(Y)" +
+                "\nCancel all orders(N)";
+            Console.Write(options);
         }
 
         public static void AskForPizza()
         {
-            var welcomeMessage = "Which pizza would u like to order?";
-            Console.Write(welcomeMessage);
+            var message = "\n\nWhich pizza would u like to order?";
+            foreach (var pizza in Pizzas.PizzaNames)
+            {
+                message += $"\n{pizza}";
+            }
+            message += "\n";
+            Console.Write(message);
         }
 
         public static void AskForExtras()
         {
-            var welcomeMessage = "Would you like to add extra ingredients to your pizza?";
-            Console.Write(welcomeMessage);
+            var message = "\n\nWould you like to add extra ingredients to your pizza?";
+            var extras = Ingredients.GetExtra();
+            foreach (var extra in extras)
+            {
+                message += $"\n{extra}";
+            }
+            message += "\n";
+            Console.Write(message);
         }
 
         public static void AskForDrinks()
         {
-            var welcomeMessage = "Would you like to add a drink to your order?";
-            Console.Write(welcomeMessage);
+            var message = "\n\nWould you like to add a drink to your order?";
+            var sodas = Sodas.SodaNames;
+            foreach (var soda in sodas)
+            {
+                message += $"\n{soda}";
+            }
+            message += "\n";
+            Console.Write(message);
         }
 
         public static void AskForNextStep()
         {
-            var welcomeMessage = "What would you like to do next?";
-            Console.Write(welcomeMessage);
+            var message = "\n\nWhat would you like to do next?";
+            Console.Write(message);
         }
     }
 }

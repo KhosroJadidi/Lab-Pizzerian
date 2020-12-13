@@ -1,8 +1,10 @@
 ﻿using Lab_3_Pizzerian.Models.StockItems;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Lab_3_Pizzerian.Data_Storage_Classes
 {
-    internal static class Ingredients
+    public static class Ingredients
     {
         public static Ingredient Cheese { get; } =
             new Ingredient
@@ -103,8 +105,11 @@ namespace Lab_3_Pizzerian.Data_Storage_Classes
                 Name = "Coriander",
                 PriceAsExtra = IngredientPriceClass.C
             };
-
-        //TODO: Add a visitor pattern to select out the ingredients that have a price higher than 0.
+        public static Ingredient None { get; } =
+            new Ingredient
+            {
+                Name = "None"
+            };
         public static Ingredient[] Extras => new[]
         {
             Ham,
@@ -116,12 +121,15 @@ namespace Lab_3_Pizzerian.Data_Storage_Classes
             Mussels,
             Artichoke,
             Kebab,
-            Coriander
+            Coriander,
+            None
         };
 
-        public static Ingredient GetExtra(int index)
+        public static IEnumerable<string> GetExtra()
         {
-            return Extras[index];
+            return Extras.Where(ing => ing.PriceAsExtra != 0)
+                .Append(None)
+                .Select(ex => ex.Name.ToString());
         }
     }
 }
