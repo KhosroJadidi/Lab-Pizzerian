@@ -20,6 +20,7 @@ namespace Lab_3_Pizzerian.Controller.Decorators
         {
             initialOrderRow.Pizza = replacementOrderRow.Pizza;
             initialOrderRow.Soda = replacementOrderRow.Soda;
+            initialOrderRow.TotalPrice = replacementOrderRow.TotalPrice;
             return initialOrderRow;
         }
         public  OrderRow UpdateOrderRow(int orderRowId, OrderRow replacementOrderRow)
@@ -28,6 +29,7 @@ namespace Lab_3_Pizzerian.Controller.Decorators
                 .SingleOrDefault(orderRow => orderRow.RowId == orderRowId);
             initialOrderRow.Pizza = replacementOrderRow.Pizza;
             initialOrderRow.Soda = replacementOrderRow.Soda;
+            initialOrderRow.TotalPrice = replacementOrderRow.TotalPrice;
             return initialOrderRow;
         }
     }
