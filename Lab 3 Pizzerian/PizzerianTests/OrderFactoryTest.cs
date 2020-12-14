@@ -18,7 +18,7 @@ namespace PizzerianTests
         public void CreateOrderTest()
         {
             var sut = OrderFactory.Factory;
-            var actual = sut.CreateOrder("Anders", firstOrderRows);
+            var actual = sut.CreateOrder(firstOrderRows);
             var ordersContainsOrder = Orders.OrdersList
                 .Contains(actual);
             Assert.IsTrue(ordersContainsOrder);

@@ -1,5 +1,6 @@
 ﻿using Lab_3_Pizzerian.Data_Storage_Classes;
 using Lab_3_Pizzerian.DataStorageClasses;
+using Lab_3_Pizzerian.Handlers;
 using Lab_3_Pizzerian.Models.Orders;
 using System;
 using System.Collections.Generic;
@@ -29,9 +30,16 @@ namespace Lab_3_Pizzerian.Viewer
             Console.Write(message);
         }
 
+        internal static void AskForConfirmation()
+        {
+            Console.WriteLine("Are you happy with your order?");
+            Console.WriteLine("Yes(0)");
+            Console.WriteLine("No, I want to re-order the following ID:");
+        }
+
         internal static void DisplayOrderList(List<OrderRow> orderRows)
         {
-            Console.WriteLine("You have the following order rows:");
+            Console.WriteLine("\n\nYou have the following order rows:");
             for (int i = 0; i < orderRows.Count; i++)
             {
                 Console.WriteLine($"Row ID:{orderRows[i].RowId}");
@@ -44,13 +52,24 @@ namespace Lab_3_Pizzerian.Viewer
                 }
                 Console.WriteLine("Extra ingredients:");
                 var extraIngredients = orderRows[i].Pizza.ExtraIngredients;
-                foreach (var ing in extraIngredients)
+                if(extraIngredients!=null)
                 {
-                    Console.WriteLine(ing.Name);
+                    foreach (var ing in extraIngredients)
+                    {
+                        Console.WriteLine(ing.Name);
+                    }
                 }
+                
                 Console.WriteLine($"Soda: {orderRows[i].Soda.Name}");
                 Console.WriteLine($"Total Price: {orderRows[i].TotalPrice}");
             }
+            var totalPrice = OrderRowHandlers.GetTotalPriceForOrderRow();
+            Console.WriteLine($"\n\nTotal price for the order row: {totalPrice}");
+        }
+
+        internal static void PrintSubmitted()
+        {
+            Console.WriteLine("You Order Has Been Submitted.");
         }
 
         public static void PrintWrongChoice()

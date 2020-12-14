@@ -99,6 +99,16 @@ namespace Lab_3_Pizzerian.Handlers
             return orderRowList;                                        
         }
 
+        public static int GetTotalPriceForOrderRow()
+        {
+            var total = 0;
+            foreach (var order in OrderRows.Rows)
+            {
+                total += order.TotalPrice;
+            }
+            return total;
+        }
+
         private static bool HandleMoreOrderRowsChoice()
         {
             MessageHandlers.AskForMoreOrderRows();

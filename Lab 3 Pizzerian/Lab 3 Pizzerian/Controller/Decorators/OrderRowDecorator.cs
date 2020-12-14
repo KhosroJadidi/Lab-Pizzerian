@@ -16,13 +16,13 @@ namespace Lab_3_Pizzerian.Controller.Decorators
         public static OrderRowDecorator RowDecorator { get; } =
             new OrderRowDecorator();
 
-        public OrderRow UpdateOrderRow(OrderRow initialOrderRow, OrderRow replacementOrderRow)
+        public  OrderRow UpdateOrderRow(OrderRow initialOrderRow, OrderRow replacementOrderRow)
         {
             initialOrderRow.Pizza = replacementOrderRow.Pizza;
             initialOrderRow.Soda = replacementOrderRow.Soda;
             return initialOrderRow;
         }
-        public OrderRow UpdateOrderRow(int orderRowId, OrderRow replacementOrderRow)
+        public  OrderRow UpdateOrderRow(int orderRowId, OrderRow replacementOrderRow)
         {
             var initialOrderRow = OrderRows.Rows
                 .SingleOrDefault(orderRow => orderRow.RowId == orderRowId);

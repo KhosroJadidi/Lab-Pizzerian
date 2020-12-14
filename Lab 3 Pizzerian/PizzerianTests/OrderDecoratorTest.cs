@@ -21,11 +21,10 @@ namespace PizzerianTests
         {
             var sut = OrderDecorator.Decorator;
             OrderFactory.Factory
-                .CreateOrder("Anders", firstOrderRows);
+                .CreateOrder( firstOrderRows);
             Orders.OrdersList.ForEach(order =>
                 {
                     Trace.WriteLine(order.Id);
-                    Trace.WriteLine(order.CustomersName);
                     order.OrderRows.ForEach(orderRow =>
                         {
                             Trace.WriteLine(orderRow.RowId);
@@ -46,11 +45,10 @@ namespace PizzerianTests
         {
             var sut = OrderDecorator.Decorator;
             OrderFactory.Factory
-                .CreateOrder("Anders", firstOrderRows);
+                .CreateOrder( firstOrderRows);
             Orders.OrdersList.ForEach(order =>
             {
                 Trace.WriteLine(order.Id);
-                Trace.WriteLine(order.CustomersName);
                 order.OrderRows.ForEach(orderRow =>
                 {
                     Trace.WriteLine(orderRow.RowId);

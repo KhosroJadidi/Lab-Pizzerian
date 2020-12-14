@@ -56,7 +56,24 @@ namespace Lab_3_Pizzerian.Handlers
                 validatedAnswer = true;
             return validatedAnswer;
         }
-     
+
+        public static Tuple<bool, int> ValidateConfirmationAnswer(string answer)
+        {
+            var validation= new Tuple<bool, int>(false, -1);
+            var parsedInput = ParseToInt32(answer);
+            var rangeIsValid =
+                InputIsInValidRange(parsedInput, -1, OrderRows.Rows.Count+1);
+            if (rangeIsValid && parsedInput == 0)
+            {
+                validation=new Tuple<bool, int>(true, parsedInput);              
+            }
+            else if(rangeIsValid)
+            {
+                validation= new Tuple<bool, int>(false, parsedInput);
+            }
+            return validation;
+        }
+
         private static bool InputIsInValidRange(int parsedInput,int min,int max)
         {
             return parsedInput > min

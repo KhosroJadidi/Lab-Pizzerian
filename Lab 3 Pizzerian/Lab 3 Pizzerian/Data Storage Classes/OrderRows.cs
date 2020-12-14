@@ -14,5 +14,6 @@ namespace Lab_3_Pizzerian.DataStorageClasses
         }
         public static List<OrderRow> Rows { get; set; } =
             new List<OrderRow>();
+        
     }
 }
