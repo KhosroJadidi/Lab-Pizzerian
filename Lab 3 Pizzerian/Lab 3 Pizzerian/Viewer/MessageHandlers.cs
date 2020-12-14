@@ -27,7 +27,7 @@ namespace Lab_3_Pizzerian.Viewer
             Console.Write(message);
         }
 
-        internal static void PrintWrongChoice()
+        public static void PrintWrongChoice()
         {
             var message = "Wrong input! Please try again.";
             Console.WriteLine(message);

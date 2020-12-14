@@ -84,5 +84,16 @@ namespace PizzerianTests
             var actual = stringWriter.ToString();
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void PrintWrongChoiceTest()
+        {
+            using var stringWriter = new StringWriter();
+            Console.SetOut(stringWriter);
+            MessageHandlers.PrintWrongChoice();
+            var expected = "Wrong input! Please try again."+Environment.NewLine;
+            var actual = stringWriter.ToString();
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

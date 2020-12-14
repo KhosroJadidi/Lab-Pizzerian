@@ -35,5 +35,20 @@ namespace PizzerianTests
             Assert.IsTrue(validationResult.Item1);
             Assert.IsTrue(validationResult.Item2 ==4);
         }
+
+        [TestMethod]
+        public void ValidateExtrasChoiceTest()
+        {
+            var validationResult =
+                UserInputHandlers.ValidateExtrasChoice("wrong");
+            Assert.IsTrue(!validationResult.Item1);
+            Assert.IsTrue(validationResult.Item2 == -1);
+            validationResult = UserInputHandlers.ValidateExtrasChoice("-10");
+            Assert.IsTrue(!validationResult.Item1);
+            Assert.IsTrue(validationResult.Item2 == -1);
+            validationResult = UserInputHandlers.ValidateExtrasChoice("4");
+            Assert.IsTrue(validationResult.Item1);
+            Assert.IsTrue(validationResult.Item2 == 4);
+        }
     }
 }
