@@ -50,5 +50,19 @@ namespace PizzerianTests
             Assert.IsTrue(validationResult.Item1);
             Assert.IsTrue(validationResult.Item2 == 4);
         }
+
+        [TestMethod]
+        public void ValidateMoreAnswerTest()
+        {
+            var validationResult =
+                UserInputHandlers.ValidateMoreAnswer("wrong");
+            Assert.IsTrue(!validationResult);
+            validationResult = UserInputHandlers.ValidateMoreAnswer("-10");
+            Assert.IsTrue(!validationResult);
+            validationResult = UserInputHandlers.ValidateMoreAnswer("1");
+            Assert.IsTrue(validationResult);
+            validationResult = UserInputHandlers.ValidateMoreAnswer("0");
+            Assert.IsTrue(validationResult);
+        }
     }
 }

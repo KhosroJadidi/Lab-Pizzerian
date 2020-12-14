@@ -35,6 +35,17 @@ namespace Lab_3_Pizzerian.Handlers
             return validation;
         }
 
+        public static bool ValidateMoreAnswer(string answer)
+        {
+            var validatedAnswer = false;
+            var parsedInput = ParseToInt32(answer);
+            var rangeIsValid =
+                InputIsInValidRange(parsedInput, -1, 2);
+            if (rangeIsValid && parsedInput == 0)
+                validatedAnswer = true;
+            return validatedAnswer;
+        }
+
         private static bool InputIsInValidRange(int parsedInput,int min,int max)
         {
             return parsedInput > min
@@ -52,6 +63,6 @@ namespace Lab_3_Pizzerian.Handlers
             {
             }
             return parsedInput;                        
-        }
+        }        
     }
 }

@@ -27,18 +27,27 @@ namespace Lab_3_Pizzerian.Handlers
 
         internal static Pizza HandleExtrasChoice(Pizza pizza)
         {
-            MessageHandlers.AskForExtras();
-            var extraChoice = UserInputHandlers.GetUserInput();
-            var validatedChoice = 
-                UserInputHandlers.ValidateExtrasChoice(extraChoice);
-            if (!validatedChoice.Item1)
-            {
-                MessageHandlers.PrintWrongChoice();
-            }
-            else
-            {
-                var decorator = PizzaDecorator.Decorator;
-                pizza=decorator.AddExtras(pizza,validatedChoice.Item2);
+            while (true) 
+            {                        
+                MessageHandlers.AskForExtras();
+                var extraChoice = UserInputHandlers.GetUserInput();
+                var validatedChoice = 
+                    UserInputHandlers.ValidateExtrasChoice(extraChoice);
+                if (!validatedChoice.Item1)
+                {
+                    MessageHandlers.PrintWrongChoice();
+                }
+                else
+                {
+                    var decorator = PizzaDecorator.Decorator;
+                    pizza=decorator.AddExtras(pizza,validatedChoice.Item2);
+                    MessageHandlers.AskForMore();
+                    var answer = UserInputHandlers.GetUserInput();
+                    var validatedAnswer =
+                        UserInputHandlers.ValidateMoreAnswer(answer);
+                    if (!validatedAnswer)
+                        break;
+                }
             }
             return pizza;
         }

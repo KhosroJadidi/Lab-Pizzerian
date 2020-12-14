@@ -57,6 +57,14 @@ namespace Lab_3_Pizzerian.Viewer
             Console.Write(message);
         }
 
+        public static void AskForMore()
+        {
+            var message = "Would you like to add more?" +
+                "\nYes(0)" +
+                "\nNo(1)";
+            Console.WriteLine(message);
+        }
+
         public static void AskForNextStep()
         {
             var message = "\n\nWhat would you like to do next?";

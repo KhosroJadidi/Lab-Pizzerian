@@ -95,5 +95,18 @@ namespace PizzerianTests
             var actual = stringWriter.ToString();
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void AskForMoreTest()
+        {
+            using var stringWriter = new StringWriter();
+            Console.SetOut(stringWriter);
+            MessageHandlers.AskForMore();
+            var expected = "Would you like to add more?" +
+                "\nYes(0)" +
+                "\nNo(1)"+Environment.NewLine;
+            var actual = stringWriter.ToString();
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
