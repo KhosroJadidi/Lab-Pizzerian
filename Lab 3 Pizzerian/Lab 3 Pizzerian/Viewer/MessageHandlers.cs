@@ -2,6 +2,8 @@
 using Lab_3_Pizzerian.DataStorageClasses;
 using Lab_3_Pizzerian.Models.Orders;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Lab_3_Pizzerian.Viewer
 {
@@ -25,6 +27,30 @@ namespace Lab_3_Pizzerian.Viewer
             }
             message += "\n";
             Console.Write(message);
+        }
+
+        internal static void DisplayOrderList(List<OrderRow> orderRows)
+        {
+            Console.WriteLine("You have the following order rows:");
+            for (int i = 0; i < orderRows.Count; i++)
+            {
+                Console.WriteLine($"Row ID:{orderRows[i].RowId}");
+                Console.WriteLine($"Pizza:{orderRows[i].Pizza.Name}");
+                Console.WriteLine("Ingredients:");
+                var ingredients=orderRows[i].Pizza.Ingredients;
+                foreach (var ing in ingredients)
+                {
+                    Console.WriteLine(ing.Name);
+                }
+                Console.WriteLine("Extra ingredients:");
+                var extraIngredients = orderRows[i].Pizza.ExtraIngredients;
+                foreach (var ing in extraIngredients)
+                {
+                    Console.WriteLine(ing.Name);
+                }
+                Console.WriteLine($"Soda: {orderRows[i].Soda.Name}");
+                Console.WriteLine($"Total Price: {orderRows[i].TotalPrice}");
+            }
         }
 
         public static void PrintWrongChoice()
@@ -57,7 +83,7 @@ namespace Lab_3_Pizzerian.Viewer
             Console.Write(message);
         }
 
-        public static void AskForMore()
+        public static void AskForMoreIngredients()
         {
             var message = "Would you like to add more?" +
                 "\nYes(0)" +
@@ -68,6 +94,14 @@ namespace Lab_3_Pizzerian.Viewer
         public static void AskForNextStep()
         {
             var message = "\n\nWhat would you like to do next?";
+            Console.Write(message);
+        }
+
+        public static void AskForMoreOrderRows()
+        {
+            var message = "Would you like to add more order rows?" +
+                "\nYes(0)" +
+                "\nNo(1)";
             Console.Write(message);
         }
     }

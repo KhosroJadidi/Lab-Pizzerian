@@ -10,5 +10,6 @@ namespace Lab_3_Pizzerian.Models.Orders
         public int RowId { get; set; }
         public Pizza Pizza { get; set; }
         public Soda Soda { get; set; }
+        public int TotalPrice { get; set; }
     }
 }

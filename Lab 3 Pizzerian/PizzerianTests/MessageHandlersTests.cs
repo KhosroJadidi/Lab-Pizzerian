@@ -101,10 +101,23 @@ namespace PizzerianTests
         {
             using var stringWriter = new StringWriter();
             Console.SetOut(stringWriter);
-            MessageHandlers.AskForMore();
+            MessageHandlers.AskForMoreIngredients();
             var expected = "Would you like to add more?" +
                 "\nYes(0)" +
                 "\nNo(1)"+Environment.NewLine;
+            var actual = stringWriter.ToString();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AskForMoreOrderRowsTest()
+        {
+            using var stringWriter = new StringWriter();
+            Console.SetOut(stringWriter);
+            MessageHandlers.AskForMoreOrderRows();
+            var expected = "Would you like to add more order rows?" +
+                "\nYes(0)" +
+                "\nNo(1)";
             var actual = stringWriter.ToString();
             Assert.AreEqual(expected, actual);
         }

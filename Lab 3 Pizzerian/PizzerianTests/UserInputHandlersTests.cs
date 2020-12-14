@@ -60,7 +60,7 @@ namespace PizzerianTests
             validationResult = UserInputHandlers.ValidateMoreAnswer("-10");
             Assert.IsTrue(!validationResult);
             validationResult = UserInputHandlers.ValidateMoreAnswer("1");
-            Assert.IsTrue(validationResult);
+            Assert.IsTrue(!validationResult);
             validationResult = UserInputHandlers.ValidateMoreAnswer("0");
             Assert.IsTrue(validationResult);
         }

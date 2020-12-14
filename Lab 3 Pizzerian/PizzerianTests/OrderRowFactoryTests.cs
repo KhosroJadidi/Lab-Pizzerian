@@ -8,17 +8,6 @@ namespace PizzerianTests
     [TestClass]
     public class OrderRowFactoryTests
     {
-        //[TestMethod]
-        //public void GetPizza()
-        //{
-        //    var pizzeria = OrderFactory.Pizzeria;
-        //    string orderId = pizzeria.PlaceOrder();
-        //    //? Get pizza by observer pattern?
-        //    // Order order = pizzeria.FetchOrder(orderId) after notice
-        //    // Assert.AreEqual(Order, typeof(order)) after 3 seconds
-        //    // Assert.AreEqual(totalPrice, order.TotalPrice)
-        //}
-
         [TestMethod]
         public void CreateOrderRowTest()
         {
@@ -33,10 +22,6 @@ namespace PizzerianTests
                 .FindAll(orderRows => orderRows.RowId == actual.RowId)
                 .Count == 1;
             Assert.IsTrue(orderRowIdIsUnique);
-        }
-
-        
-
-        
+        }                
     }
 }
