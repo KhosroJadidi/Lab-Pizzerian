@@ -1,6 +1,7 @@
 ﻿using Lab_3_Pizzerian.Data_Storage_Classes;
 using Lab_3_Pizzerian.DataStorageClasses;
 using Lab_3_Pizzerian.Models.Products;
+using Lab_3_Pizzerian.Models.StockItems;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,11 @@ namespace Lab_3_Pizzerian.Handlers
         internal static Pizza GetPizza(int index)
         {
             return Pizzas.AllPizzas[index];
-        }        
+        }
+
+        internal static Soda GetDrink(int index)
+        {
+            return Sodas.AllSodas[index];
+        }
     }
 }

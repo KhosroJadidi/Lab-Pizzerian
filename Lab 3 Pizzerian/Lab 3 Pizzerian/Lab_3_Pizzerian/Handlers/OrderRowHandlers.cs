@@ -1,5 +1,6 @@
 ﻿using Lab_3_Pizzerian.Controller.Decorators;
 using Lab_3_Pizzerian.Models.Products;
+using Lab_3_Pizzerian.Models.StockItems;
 using Lab_3_Pizzerian.Viewer;
 using System;
 
@@ -24,7 +25,7 @@ namespace Lab_3_Pizzerian.Handlers
                 }
             }
         }
-
+        
         internal static Pizza HandleExtrasChoice(Pizza pizza)
         {
             while (true) 
@@ -50,6 +51,24 @@ namespace Lab_3_Pizzerian.Handlers
                 }
             }
             return pizza;
+        }
+
+        internal static Soda HandleDrinkChoice()
+        {
+            while(true)
+            {
+                MessageHandlers.AskForDrinks();
+                var drinkChoice = UserInputHandlers.GetUserInput();
+                var validatedChoice = UserInputHandlers.ValidateDrinkChoice(drinkChoice);
+                if (!validatedChoice.Item1)
+                {
+                    MessageHandlers.PrintWrongChoice();
+                }
+                else
+                {
+                    return UserChoiceHandlers.GetDrink(validatedChoice.Item2);
+                }
+            }
         }
     }
 }

@@ -35,6 +35,17 @@ namespace Lab_3_Pizzerian.Handlers
             return validation;
         }
 
+        public static Tuple<bool, int> ValidateDrinkChoice(string drinkChoice)
+        {
+            var validation = new Tuple<bool, int>(false, -1);
+            var parsedInput = ParseToInt32(drinkChoice);
+            var rangeIsValid =
+                InputIsInValidRange(parsedInput, -1, Sodas.AllSodas.Length);
+            if (rangeIsValid) 
+                    validation =new Tuple<bool, int>(true, parsedInput);
+            return validation;
+        }
+
         public static bool ValidateMoreAnswer(string answer)
         {
             var validatedAnswer = false;
@@ -45,7 +56,7 @@ namespace Lab_3_Pizzerian.Handlers
                 validatedAnswer = true;
             return validatedAnswer;
         }
-
+     
         private static bool InputIsInValidRange(int parsedInput,int min,int max)
         {
             return parsedInput > min
@@ -63,6 +74,8 @@ namespace Lab_3_Pizzerian.Handlers
             {
             }
             return parsedInput;                        
-        }        
+        }
+
+        
     }
 }
