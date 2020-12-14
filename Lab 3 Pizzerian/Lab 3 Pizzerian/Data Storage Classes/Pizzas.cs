@@ -73,6 +73,15 @@ namespace Lab_3_Pizzerian.DataStorageClasses
                 Ingredients = new List<Ingredient>()
                 {}                                    
             };
+        public static Pizza[] AllPizzas =>
+            new[]
+            {
+                Margerita,
+                Hawaii,
+                Kebab_Pizza,
+                Quattro_Stadioni,
+                None
+            };
         public static string[] PizzaNames =>
             new [] 
             {

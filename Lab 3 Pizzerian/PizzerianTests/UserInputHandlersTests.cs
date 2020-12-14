@@ -20,5 +20,20 @@ namespace PizzerianTests
             var actual = UserInputHandlers.GetUserInput();
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void ValidatePizzaChoiceTest()
+        {
+            var validationResult =
+                UserInputHandlers.ValidatePizzaChoice("wrong");
+            Assert.IsTrue(!validationResult.Item1);
+            Assert.IsTrue(validationResult.Item2==-1);
+            validationResult = UserInputHandlers.ValidatePizzaChoice("-10");
+            Assert.IsTrue(!validationResult.Item1);
+            Assert.IsTrue(validationResult.Item2 == -1);
+            validationResult = UserInputHandlers.ValidatePizzaChoice("4");
+            Assert.IsTrue(validationResult.Item1);
+            Assert.IsTrue(validationResult.Item2 ==4);
+        }
     }
 }

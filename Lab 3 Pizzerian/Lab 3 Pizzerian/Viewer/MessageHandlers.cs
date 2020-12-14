@@ -27,6 +27,12 @@ namespace Lab_3_Pizzerian.Viewer
             Console.Write(message);
         }
 
+        internal static void PrintWrongChoice()
+        {
+            var message = "Wrong input! Please try again.";
+            Console.WriteLine(message);
+        }
+
         public static void AskForExtras()
         {
             var message = "\n\nWould you like to add extra ingredients to your pizza?";
