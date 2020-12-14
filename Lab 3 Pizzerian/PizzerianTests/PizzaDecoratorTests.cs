@@ -17,10 +17,20 @@ namespace PizzerianTests
         public void AddExtrasTest()
         {
             var sut = PizzaDecorator.Decorator;
-            var pizzaBefore = Pizzas.Margerita;
-            var actual = sut.AddExtras(pizzaBefore, 0);
-            var extraWasAdded = actual.ExtraIngredients.Contains(Ingredients.Ham);
-            Assert.IsTrue(extraWasAdded);
+            var margerita = Pizzas.Margerita;
+            var actual = sut.AddExtras(margerita, 0);
+            var firstExtraHasBeenAdded = actual.ExtraIngredients
+                .Contains(Ingredients.Ham);
+            Assert.IsTrue(firstExtraHasBeenAdded);
+            actual = sut.AddExtras(margerita, 1);
+            var secondExtraHasBeenAdded = actual.ExtraIngredients
+                .Contains(Ingredients.Pineapple);
+            Assert.IsTrue(secondExtraHasBeenAdded);
+            actual = sut.AddExtras(margerita, 1);
+            var duplicateExtraWasNotAdded = actual.ExtraIngredients
+                .Count(ex=>ex.Name==Ingredients.Pineapple.Name)
+                ==1;
+            Assert.IsTrue(duplicateExtraWasNotAdded);
         }
     }
 }
