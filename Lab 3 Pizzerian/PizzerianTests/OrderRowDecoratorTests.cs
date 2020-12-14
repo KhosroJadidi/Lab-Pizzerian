@@ -49,7 +49,7 @@ namespace PizzerianTests
             var replacementOrderRow = OrderRowFactory.RowFactory.
                 CreateOrderRow(secondPizza, secondSoda);
             var sut = OrderRowDecorator.RowDecorator;
-            var actual = sut.UpdateOrderRow(initialOrderRow.RowId, replacementOrderRow);
+            var actual = sut.ReplaceOrderRow(initialOrderRow.RowId, replacementOrderRow);
             Assert.AreEqual(actual.Pizza, secondPizza);
             Assert.AreEqual(actual.Soda, secondSoda);
             var orderRowsHaveBeenUpdated = OrderRows.Rows

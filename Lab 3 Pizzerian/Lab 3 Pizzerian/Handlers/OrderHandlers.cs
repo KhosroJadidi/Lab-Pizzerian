@@ -31,10 +31,10 @@ namespace Lab_3_Pizzerian.Handlers
                 var orderRow = OrderRowFactory.RowFactory
                     .CreateOrderRow(pizza, drink);
                 var updatedOrder = OrderRowDecorator.RowDecorator
-                    .UpdateOrderRow(confirmation.Item2, orderRow);
-                var orderToRemove = OrderRows.Rows
-                    .Single(row => row.RowId == confirmation.Item2);
-                OrderRows.Rows.Remove(orderToRemove);
+                    .ReplaceOrderRow(confirmation.Item2, orderRow);
+                //var orderToRemove = OrderRows.Rows
+                //    .First(row => row.RowId == confirmation.Item2);
+                //OrderRows.Rows.Remove(orderToRemove);
                 OrderRows.Rows.OrderBy(row => row.RowId);
             }
             var rows = OrderRows.Rows.ToList();
