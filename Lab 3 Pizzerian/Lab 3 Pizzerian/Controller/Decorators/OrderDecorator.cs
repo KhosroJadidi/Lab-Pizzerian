@@ -16,7 +16,6 @@ namespace Lab_3_Pizzerian.Controller.Decorators
         public static OrderDecorator Decorator { get; set; } =
             new OrderDecorator();
 
-        //TODO:More overloads can be added.
         public void DeleteOrderRow(Order givenOrder, OrderRow rowToDelete)
         {
             Orders.OrdersList.Find(order => order == givenOrder)
