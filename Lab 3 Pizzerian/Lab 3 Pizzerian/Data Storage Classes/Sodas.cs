@@ -1,33 +1,28 @@
-﻿using Lab_3_Pizzerian.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Lab_3_Pizzerian.Models.StockItems;
 
 namespace Lab_3_Pizzerian.DataStorageClasses
 {
     public static class Sodas
     {
-        public static Soda Coca_Cola { get; } =
+        public static Soda CocaCola { get; } =
             new Soda
             {
-                Name = SodasNames.Coca_Cola,
-                Price = SodasPrices.Coca_Cola
+                Name = "Coca Cola",
+                Price = 20
             };
 
         public static Soda Fanta { get; } =
             new Soda
             {
-                Name = SodasNames.Fanta,
-                Price = SodasPrices.Fanta
+                Name = "Fanta",
+                Price = 20
             };
 
         public static Soda Sprite { get; } =
             new Soda
             {
-                Name = SodasNames.Sprite,
-                Price = SodasPrices.Sprite
+                Name = "Sprite",
+                Price = 25
             };
     }
 }

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab 3 Pizzerian", "Lab 3 Pizzerian\Lab 3 Pizzerian.csproj", "{1A8C6B52-0E3E-44AB-89EB-76A22C6A6F2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab 3 Pizzerian", "Lab 3 Pizzerian\Lab 3 Pizzerian.csproj", "{1A8C6B52-0E3E-44AB-89EB-76A22C6A6F2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzerianTests", "PizzerianTests\PizzerianTests.csproj", "{ACAE1EB0-5D89-40A2-AC6D-AEE3A57F2A56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1A8C6B52-0E3E-44AB-89EB-76A22C6A6F2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A8C6B52-0E3E-44AB-89EB-76A22C6A6F2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A8C6B52-0E3E-44AB-89EB-76A22C6A6F2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACAE1EB0-5D89-40A2-AC6D-AEE3A57F2A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACAE1EB0-5D89-40A2-AC6D-AEE3A57F2A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACAE1EB0-5D89-40A2-AC6D-AEE3A57F2A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACAE1EB0-5D89-40A2-AC6D-AEE3A57F2A56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
