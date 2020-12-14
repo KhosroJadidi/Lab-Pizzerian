@@ -10,9 +10,9 @@ using System.Collections.Generic;
 
 namespace Lab_3_Pizzerian.Handlers
 {
-    internal class OrderRowHandlers
+    public class OrderRowHandlers
     {
-        internal static Pizza HandlePizzaChoice()
+        public static Pizza HandlePizzaChoice()
         {
             while (true)
             {
@@ -32,7 +32,7 @@ namespace Lab_3_Pizzerian.Handlers
             }
         }
         
-        internal static Pizza HandleExtrasChoice(Pizza pizza)
+        public static Pizza HandleExtrasChoice(Pizza pizza)
         {
             while (true) 
             {                        
@@ -60,7 +60,7 @@ namespace Lab_3_Pizzerian.Handlers
             return pizza;
         }
 
-        internal static Soda HandleDrinkChoice()
+        public static Soda HandleDrinkChoice()
         {
             while(true)
             {
@@ -80,7 +80,7 @@ namespace Lab_3_Pizzerian.Handlers
             }
         }
 
-        internal static List<OrderRow> CreateOrderList()
+        public static List<OrderRow> CreateOrderList()
         {
             var orderRowList = new List<OrderRow>();
             while (true)

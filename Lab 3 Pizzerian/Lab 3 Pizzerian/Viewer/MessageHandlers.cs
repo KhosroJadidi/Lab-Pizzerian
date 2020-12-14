@@ -30,14 +30,14 @@ namespace Lab_3_Pizzerian.Viewer
             Console.Write(message);
         }
 
-        internal static void AskForConfirmation()
+        public static void AskForConfirmation()
         {
             Console.WriteLine("Are you happy with your order?");
             Console.WriteLine("Yes(0)");
             Console.WriteLine("No, I want to re-order the following ID:");
         }
 
-        internal static void DisplayOrderList(List<OrderRow> orderRows)
+        public static void DisplayOrderList(List<OrderRow> orderRows)
         {
             Console.WriteLine("\n\nYou have the following order rows:");
             for (int i = 0; i < orderRows.Count; i++)
@@ -67,7 +67,7 @@ namespace Lab_3_Pizzerian.Viewer
             Console.WriteLine($"\n\nTotal price for the order row: {totalPrice}");
         }
 
-        internal static void PrintSubmitted()
+        public static void PrintSubmitted()
         {
             Console.WriteLine("You Order Has Been Submitted.");
         }

@@ -1,9 +1,15 @@
-﻿using Lab_3_Pizzerian.Data_Storage_Classes;
+﻿using Lab_3_Pizzerian.Controller.Factories;
+using Lab_3_Pizzerian.Data_Storage_Classes;
 using Lab_3_Pizzerian.DataStorageClasses;
+using Lab_3_Pizzerian.Handlers;
+using Lab_3_Pizzerian.Models.Orders;
+using Lab_3_Pizzerian.Models.StockItems;
 using Lab_3_Pizzerian.Viewer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace PizzerianTests
 {
@@ -118,6 +124,86 @@ namespace PizzerianTests
             var expected = "Would you like to add more order rows?" +
                 "\nYes(0)" +
                 "\nNo(1)";
+            var actual = stringWriter.ToString();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void PrintSubmittedTest()
+        {
+            using var stringWriter = new StringWriter();
+            Console.SetOut(stringWriter);
+            MessageHandlers.PrintSubmitted();
+            var expected = "You Order Has Been Submitted."+Environment.NewLine;
+            var actual = stringWriter.ToString();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void DisplayOrderListTest()
+        {
+            using var stringWriter = new StringWriter();
+            Console.SetOut(stringWriter);
+            var pizza = Pizzas.Hawaii;
+            pizza.ExtraIngredients = new List<Ingredient>
+            { 
+                Ingredients.Ham 
+            };
+            var orderList = new List<OrderRow>
+            {
+                OrderRowFactory.RowFactory.CreateOrderRow
+                (pizza,Sodas.CocaCola)
+            };
+            var ingredientsString = string.Empty;
+            foreach (var ing in orderList[0].Pizza.Ingredients)
+            {
+                ingredientsString += ing.Name +
+                    Environment.NewLine;
+            }
+            var extraIngredients = string.Empty;
+            foreach (var ing in orderList[0].Pizza.ExtraIngredients)
+            {
+                extraIngredients += ing.Name +
+                    Environment.NewLine;
+            }
+            var totalPrice = OrderRowHandlers.GetTotalPriceForOrderRow();
+            MessageHandlers.DisplayOrderList(orderList);
+            var expected ="\n\nYou have the following order rows:"
+                + Environment.NewLine
+                + $"Row ID:{orderList[0].RowId}"
+                + Environment.NewLine
+                + $"Pizza:{orderList[0].Pizza.Name}"
+                + Environment.NewLine
+                + "Ingredients:"
+                + Environment.NewLine
+                + ingredientsString
+                + "Extra ingredients:"
+                + Environment.NewLine
+                + extraIngredients
+                + $"Soda: {orderList[0].Soda.Name}"
+                + Environment.NewLine
+                + $"Total Price: {orderList[0].TotalPrice}"
+                + Environment.NewLine
+                + $"\n\nTotal price for the order row: {totalPrice}"
+                + Environment.NewLine;
+
+
+            var actual = stringWriter.ToString();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AskForConfirmationTest()
+        {
+            using var stringWriter = new StringWriter();
+            Console.SetOut(stringWriter);
+            MessageHandlers.AskForConfirmation();
+            var expected = "Are you happy with your order?"
+                + Environment.NewLine
+                + "Yes(0)" +
+                Environment.NewLine
+                + "No, I want to re-order the following ID:"
+                + Environment.NewLine;
             var actual = stringWriter.ToString();
             Assert.AreEqual(expected, actual);
         }
