@@ -1,7 +1,6 @@
 ﻿using Lab_3_Pizzerian.DataStorageClasses;
 using Lab_3_Pizzerian.Models.Orders;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Lab_3_Pizzerian.Controller
 {
@@ -9,13 +8,14 @@ namespace Lab_3_Pizzerian.Controller
     {
         private readonly List<Order> placedOrders = new List<Order>();
         private int orderId = 1;
+
         private OrderFactory()
         {
         }
 
         public static OrderFactory Factory { get; } = new OrderFactory();
 
-        public Order CreateOrder( List<OrderRow> OrderRows)
+        public Order CreateOrder(List<OrderRow> OrderRows)
         {
             var order = new Order
             {

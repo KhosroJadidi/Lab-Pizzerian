@@ -9,7 +9,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace PizzerianTests
 {
@@ -97,7 +96,7 @@ namespace PizzerianTests
             using var stringWriter = new StringWriter();
             Console.SetOut(stringWriter);
             MessageHandlers.PrintWrongChoice();
-            var expected = "Wrong input! Please try again."+Environment.NewLine;
+            var expected = "Wrong input! Please try again." + Environment.NewLine;
             var actual = stringWriter.ToString();
             Assert.AreEqual(expected, actual);
         }
@@ -110,7 +109,7 @@ namespace PizzerianTests
             MessageHandlers.AskForMoreIngredients();
             var expected = "Would you like to add more?" +
                 "\nYes(0)" +
-                "\nNo(1)"+Environment.NewLine;
+                "\nNo(1)" + Environment.NewLine;
             var actual = stringWriter.ToString();
             Assert.AreEqual(expected, actual);
         }
@@ -134,7 +133,7 @@ namespace PizzerianTests
             using var stringWriter = new StringWriter();
             Console.SetOut(stringWriter);
             MessageHandlers.PrintSubmitted();
-            var expected = "You Order Has Been Submitted."+Environment.NewLine;
+            var expected = "You Order Has Been Submitted." + Environment.NewLine;
             var actual = stringWriter.ToString();
             Assert.AreEqual(expected, actual);
         }
@@ -146,8 +145,8 @@ namespace PizzerianTests
             Console.SetOut(stringWriter);
             var pizza = Pizzas.Hawaii;
             pizza.ExtraIngredients = new List<Ingredient>
-            { 
-                Ingredients.Ham 
+            {
+                Ingredients.Ham
             };
             var orderList = new List<OrderRow>
             {
@@ -168,7 +167,7 @@ namespace PizzerianTests
             }
             var totalPrice = OrderRowHandlers.GetTotalPriceForOrderRow();
             MessageHandlers.DisplayOrderList(orderList);
-            var expected ="\n\nYou have the following order rows:"
+            var expected = "\n\nYou have the following order rows:"
                 + Environment.NewLine
                 + $"Row ID:{orderList[0].RowId}"
                 + Environment.NewLine
@@ -186,7 +185,6 @@ namespace PizzerianTests
                 + Environment.NewLine
                 + $"\n\nTotal price for the order row: {totalPrice}"
                 + Environment.NewLine;
-
 
             var actual = stringWriter.ToString();
             Assert.AreEqual(expected, actual);

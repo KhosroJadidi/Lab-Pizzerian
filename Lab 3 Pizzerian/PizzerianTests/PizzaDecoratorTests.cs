@@ -3,10 +3,7 @@ using Lab_3_Pizzerian.Data_Storage_Classes;
 using Lab_3_Pizzerian.DataStorageClasses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PizzerianTests
 {
@@ -28,8 +25,8 @@ namespace PizzerianTests
             Assert.IsTrue(secondExtraHasBeenAdded);
             actual = sut.AddExtras(margerita, 1);
             var duplicateExtraWasNotAdded = actual.ExtraIngredients
-                .Count(ex=>ex.Name==Ingredients.Pineapple.Name)
-                ==1;
+                .Count(ex => ex.Name == Ingredients.Pineapple.Name)
+                == 1;
             Assert.IsTrue(duplicateExtraWasNotAdded);
         }
     }

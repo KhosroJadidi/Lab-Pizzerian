@@ -3,11 +3,7 @@ using Lab_3_Pizzerian.Controller.Factories;
 using Lab_3_Pizzerian.DataStorageClasses;
 using Lab_3_Pizzerian.Models.Orders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PizzerianTests
 {
@@ -40,6 +36,6 @@ namespace PizzerianTests
                 .CreateOrderRow(Pizzas.Margerita,Sodas.Sprite)
         };
 
-        #endregion
+        #endregion Test Data Repository
     }
 }

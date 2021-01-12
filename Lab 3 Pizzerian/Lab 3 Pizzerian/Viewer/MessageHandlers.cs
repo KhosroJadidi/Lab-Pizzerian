@@ -4,7 +4,6 @@ using Lab_3_Pizzerian.Handlers;
 using Lab_3_Pizzerian.Models.Orders;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Lab_3_Pizzerian.Viewer
 {
@@ -45,21 +44,21 @@ namespace Lab_3_Pizzerian.Viewer
                 Console.WriteLine($"Row ID:{orderRows[i].RowId}");
                 Console.WriteLine($"Pizza:{orderRows[i].Pizza.Name}");
                 Console.WriteLine("Ingredients:");
-                var ingredients=orderRows[i].Pizza.Ingredients;
+                var ingredients = orderRows[i].Pizza.Ingredients;
                 foreach (var ing in ingredients)
                 {
                     Console.WriteLine(ing.Name);
                 }
                 Console.WriteLine("Extra ingredients:");
                 var extraIngredients = orderRows[i].Pizza.ExtraIngredients;
-                if(extraIngredients!=null)
+                if (extraIngredients != null)
                 {
                     foreach (var ing in extraIngredients)
                     {
                         Console.WriteLine(ing.Name);
                     }
                 }
-                
+
                 Console.WriteLine($"Soda: {orderRows[i].Soda.Name}");
                 Console.WriteLine($"Total Price: {orderRows[i].TotalPrice}");
             }

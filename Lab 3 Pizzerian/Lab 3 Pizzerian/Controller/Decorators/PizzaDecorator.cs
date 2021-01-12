@@ -4,8 +4,6 @@ using Lab_3_Pizzerian.Models.StockItems;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab_3_Pizzerian.Controller.Decorators
 {
@@ -14,6 +12,7 @@ namespace Lab_3_Pizzerian.Controller.Decorators
         private PizzaDecorator()
         {
         }
+
         public static PizzaDecorator Decorator { get; set; } =
             new PizzaDecorator();
 

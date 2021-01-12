@@ -1,6 +1,5 @@
 ﻿using Lab_3_Pizzerian.Models.StockItems;
 using System.Collections.Generic;
-using System;
 
 namespace Lab_3_Pizzerian.Models.Products
 {
@@ -13,5 +12,4 @@ namespace Lab_3_Pizzerian.Models.Products
         public IEnumerable<Ingredient>? ExtraIngredients { get; set; }
 #nullable disable
     }
-    
 }

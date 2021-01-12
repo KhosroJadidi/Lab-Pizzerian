@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Lab_3_Pizzerian.Models.StockItems;
+﻿using Lab_3_Pizzerian.Data_Storage_Classes;
 using Lab_3_Pizzerian.Models.Products;
-using Lab_3_Pizzerian.Data_Storage_Classes;
+using Lab_3_Pizzerian.Models.StockItems;
+using System.Collections.Generic;
 
 namespace Lab_3_Pizzerian.DataStorageClasses
 {
@@ -18,6 +18,7 @@ namespace Lab_3_Pizzerian.DataStorageClasses
                     Ingredients.TomatoSauce
                 }
             };
+
         public static Pizza Hawaii { get; } =
             new Pizza
             {
@@ -31,6 +32,7 @@ namespace Lab_3_Pizzerian.DataStorageClasses
                     Ingredients.Pineapple
                 }
             };
+
         public static Pizza Kebab_Pizza { get; } =
             new Pizza
             {
@@ -49,6 +51,7 @@ namespace Lab_3_Pizzerian.DataStorageClasses
                     Ingredients.KebabSauce
                 }
             };
+
         public static Pizza Quattro_Stadioni { get; } =
             new Pizza
             {
@@ -65,14 +68,16 @@ namespace Lab_3_Pizzerian.DataStorageClasses
                     Ingredients.Artichoke
                 }
             };
+
         public static Pizza None { get; } =
             new Pizza
             {
                 Name = "None",
                 Price = 0,
                 Ingredients = new List<Ingredient>()
-                {}                                    
+                { }
             };
+
         public static Pizza[] AllPizzas =>
             new[]
             {
@@ -82,8 +87,9 @@ namespace Lab_3_Pizzerian.DataStorageClasses
                 Quattro_Stadioni,
                 None
             };
+
         public static string[] PizzaNames =>
-            new [] 
+            new[]
             {
                 Margerita.Name,
                 Hawaii.Name,

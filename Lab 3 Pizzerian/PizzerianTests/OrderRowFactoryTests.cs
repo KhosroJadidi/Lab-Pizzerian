@@ -1,7 +1,6 @@
 using Lab_3_Pizzerian.Controller.Factories;
 using Lab_3_Pizzerian.DataStorageClasses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Diagnostics;
 
 namespace PizzerianTests
 {
@@ -22,6 +21,6 @@ namespace PizzerianTests
                 .FindAll(orderRows => orderRows.RowId == actual.RowId)
                 .Count == 1;
             Assert.IsTrue(orderRowIdIsUnique);
-        }                
+        }
     }
 }

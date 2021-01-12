@@ -1,9 +1,7 @@
-﻿using Lab_3_Pizzerian;
-using Lab_3_Pizzerian.Handlers;
+﻿using Lab_3_Pizzerian.Handlers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
-
 
 namespace PizzerianTests
 {
@@ -27,13 +25,13 @@ namespace PizzerianTests
             var validationResult =
                 UserInputHandlers.ValidatePizzaChoice("wrong");
             Assert.IsTrue(!validationResult.Item1);
-            Assert.IsTrue(validationResult.Item2==-1);
+            Assert.IsTrue(validationResult.Item2 == -1);
             validationResult = UserInputHandlers.ValidatePizzaChoice("-10");
             Assert.IsTrue(!validationResult.Item1);
             Assert.IsTrue(validationResult.Item2 == -1);
             validationResult = UserInputHandlers.ValidatePizzaChoice("4");
             Assert.IsTrue(validationResult.Item1);
-            Assert.IsTrue(validationResult.Item2 ==4);
+            Assert.IsTrue(validationResult.Item2 == 4);
         }
 
         [TestMethod]
@@ -64,6 +62,7 @@ namespace PizzerianTests
             validationResult = UserInputHandlers.ValidateMoreAnswer("0");
             Assert.IsTrue(validationResult);
         }
+
         [TestMethod]
         public void ValidateDrinkChoiceTest()
         {

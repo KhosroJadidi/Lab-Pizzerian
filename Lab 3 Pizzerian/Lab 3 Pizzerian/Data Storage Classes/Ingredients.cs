@@ -1,5 +1,4 @@
 ﻿using Lab_3_Pizzerian.Models.StockItems;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Lab_3_Pizzerian.Data_Storage_Classes
@@ -105,11 +104,13 @@ namespace Lab_3_Pizzerian.Data_Storage_Classes
                 Name = "Coriander",
                 PriceAsExtra = IngredientPriceClass.C
             };
+
         public static Ingredient None { get; } =
             new Ingredient
             {
                 Name = "None"
             };
+
         public static Ingredient[] Extras => new[]
         {
             Ham,

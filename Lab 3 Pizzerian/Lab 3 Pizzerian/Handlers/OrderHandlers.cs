@@ -3,11 +3,7 @@ using Lab_3_Pizzerian.Controller.Decorators;
 using Lab_3_Pizzerian.Controller.Factories;
 using Lab_3_Pizzerian.DataStorageClasses;
 using Lab_3_Pizzerian.Viewer;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab_3_Pizzerian.Handlers
 {
@@ -32,9 +28,6 @@ namespace Lab_3_Pizzerian.Handlers
                     .CreateOrderRow(pizza, drink);
                 var updatedOrder = OrderRowDecorator.RowDecorator
                     .ReplaceOrderRow(confirmation.Item2, orderRow);
-                //var orderToRemove = OrderRows.Rows
-                //    .First(row => row.RowId == confirmation.Item2);
-                //OrderRows.Rows.Remove(orderToRemove);
                 OrderRows.Rows.OrderBy(row => row.RowId);
             }
             var rows = OrderRows.Rows.ToList();

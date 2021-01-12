@@ -5,7 +5,6 @@ using Lab_3_Pizzerian.Models.Orders;
 using Lab_3_Pizzerian.Models.Products;
 using Lab_3_Pizzerian.Models.StockItems;
 using Lab_3_Pizzerian.Viewer;
-using System;
 using System.Collections.Generic;
 
 namespace Lab_3_Pizzerian.Handlers
@@ -18,7 +17,7 @@ namespace Lab_3_Pizzerian.Handlers
             {
                 MessageHandlers.AskForPizza();
                 var pizzaChoice = UserInputHandlers.GetUserInput();
-                var validatedChoice =UserInputHandlers
+                var validatedChoice = UserInputHandlers
                     .ValidatePizzaChoice(pizzaChoice);
                 if (!validatedChoice.Item1)
                 {
@@ -31,11 +30,11 @@ namespace Lab_3_Pizzerian.Handlers
                 }
             }
         }
-        
+
         public static Pizza HandleExtrasChoice(Pizza pizza)
         {
-            while (true) 
-            {                        
+            while (true)
+            {
                 MessageHandlers.AskForExtras();
                 var extraChoice = UserInputHandlers.GetUserInput();
                 var validatedChoice = UserInputHandlers
@@ -47,11 +46,11 @@ namespace Lab_3_Pizzerian.Handlers
                 else
                 {
                     var decorator = PizzaDecorator.Decorator;
-                    pizza=decorator
-                        .AddExtras(pizza,validatedChoice.Item2);
+                    pizza = decorator
+                        .AddExtras(pizza, validatedChoice.Item2);
                     MessageHandlers.AskForMoreIngredients();
                     var answer = UserInputHandlers.GetUserInput();
-                    var validatedAnswer =UserInputHandlers
+                    var validatedAnswer = UserInputHandlers
                         .ValidateMoreAnswer(answer);
                     if (!validatedAnswer)
                         break;
@@ -62,11 +61,11 @@ namespace Lab_3_Pizzerian.Handlers
 
         public static Soda HandleDrinkChoice()
         {
-            while(true)
+            while (true)
             {
                 MessageHandlers.AskForDrinks();
                 var drinkChoice = UserInputHandlers.GetUserInput();
-                var validatedChoice =UserInputHandlers
+                var validatedChoice = UserInputHandlers
                     .ValidateDrinkChoice(drinkChoice);
                 if (!validatedChoice.Item1)
                 {
@@ -89,14 +88,14 @@ namespace Lab_3_Pizzerian.Handlers
                 if (pizza.Name != Pizzas.None.Name)
                     pizza = HandleExtrasChoice(pizza);
                 var drink = HandleDrinkChoice();
-                var orderRow=OrderRowFactory.RowFactory
+                var orderRow = OrderRowFactory.RowFactory
                     .CreateOrderRow(pizza, drink);
                 orderRowList.Add(orderRow);
-                var userWantsMoreOrderRoews =HandleMoreOrderRowsChoice();
+                var userWantsMoreOrderRoews = HandleMoreOrderRowsChoice();
                 if (!userWantsMoreOrderRoews)
                     break;
             }
-            return orderRowList;                                        
+            return orderRowList;
         }
 
         public static int GetTotalPriceForOrderRow()

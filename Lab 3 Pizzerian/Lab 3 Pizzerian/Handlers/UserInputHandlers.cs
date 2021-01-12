@@ -1,7 +1,6 @@
 ﻿using Lab_3_Pizzerian.Data_Storage_Classes;
 using Lab_3_Pizzerian.DataStorageClasses;
 using System;
-using System.Linq;
 
 namespace Lab_3_Pizzerian.Handlers
 {
@@ -12,13 +11,13 @@ namespace Lab_3_Pizzerian.Handlers
             return Console.ReadLine();
         }
 
-        public static Tuple<bool,int> ValidatePizzaChoice(string pizzaInput)
+        public static Tuple<bool, int> ValidatePizzaChoice(string pizzaInput)
         {
             var validation = new Tuple<bool, int>(false, -1);
-            var parsedInput=ParseToInt32(pizzaInput);
-            var rangeIsValid=
-                InputIsInValidRange(parsedInput,-1,Pizzas.AllPizzas.Length);
-            if (rangeIsValid) validation = 
+            var parsedInput = ParseToInt32(pizzaInput);
+            var rangeIsValid =
+                InputIsInValidRange(parsedInput, -1, Pizzas.AllPizzas.Length);
+            if (rangeIsValid) validation =
                     new Tuple<bool, int>(true, parsedInput);
             return validation;
         }
@@ -29,7 +28,7 @@ namespace Lab_3_Pizzerian.Handlers
             var parsedInput = ParseToInt32(extrasInput);
             var extras = Ingredients.GetExtra();
             var rangeIsValid =
-                InputIsInValidRange(parsedInput, -1,extras.Length);
+                InputIsInValidRange(parsedInput, -1, extras.Length);
             if (rangeIsValid) validation =
                     new Tuple<bool, int>(true, parsedInput);
             return validation;
@@ -41,8 +40,8 @@ namespace Lab_3_Pizzerian.Handlers
             var parsedInput = ParseToInt32(drinkChoice);
             var rangeIsValid =
                 InputIsInValidRange(parsedInput, -1, Sodas.AllSodas.Length);
-            if (rangeIsValid) 
-                    validation =new Tuple<bool, int>(true, parsedInput);
+            if (rangeIsValid)
+                validation = new Tuple<bool, int>(true, parsedInput);
             return validation;
         }
 
@@ -59,22 +58,22 @@ namespace Lab_3_Pizzerian.Handlers
 
         public static Tuple<bool, int> ValidateConfirmationAnswer(string answer)
         {
-            var validation= new Tuple<bool, int>(false, -1);
+            var validation = new Tuple<bool, int>(false, -1);
             var parsedInput = ParseToInt32(answer);
             var rangeIsValid =
-                InputIsInValidRange(parsedInput, -1, OrderRows.Rows.Count+1);
+                InputIsInValidRange(parsedInput, -1, OrderRows.Rows.Count + 1);
             if (rangeIsValid && parsedInput == 0)
             {
-                validation=new Tuple<bool, int>(true, parsedInput);              
+                validation = new Tuple<bool, int>(true, parsedInput);
             }
-            else if(rangeIsValid)
+            else if (rangeIsValid)
             {
-                validation= new Tuple<bool, int>(false, parsedInput);
+                validation = new Tuple<bool, int>(false, parsedInput);
             }
             return validation;
         }
 
-        private static bool InputIsInValidRange(int parsedInput,int min,int max)
+        private static bool InputIsInValidRange(int parsedInput, int min, int max)
         {
             return parsedInput > min
                 && parsedInput < max;
@@ -82,7 +81,7 @@ namespace Lab_3_Pizzerian.Handlers
 
         private static int ParseToInt32(string input)
         {
-            var parsedInput=-1;
+            var parsedInput = -1;
             try
             {
                 parsedInput = Int32.Parse(input);
@@ -90,9 +89,7 @@ namespace Lab_3_Pizzerian.Handlers
             catch (Exception)
             {
             }
-            return parsedInput;                        
+            return parsedInput;
         }
-
-        
     }
 }
