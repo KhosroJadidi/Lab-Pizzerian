@@ -1,16 +1,7 @@
-﻿using Lab_3_Pizzerian.Controller;
-using Lab_3_Pizzerian.Controller.Decorators;
+﻿using Lab_3_Pizzerian.Controller.Decorators;
 using Lab_3_Pizzerian.Controller.Factories;
 using Lab_3_Pizzerian.DataStorageClasses;
-using Lab_3_Pizzerian.Models.Orders;
-using Lab_3_Pizzerian.Models.Products;
-using Lab_3_Pizzerian.Models.StockItems;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PizzerianTests
 {
@@ -29,7 +20,7 @@ namespace PizzerianTests
             var replacementOrderRow = OrderRowFactory.RowFactory.
                 CreateOrderRow(secondPizza, secondSoda);
             var sut = OrderRowDecorator.RowDecorator;
-            var actual= sut.UpdateOrderRow(initialOrderRow,replacementOrderRow);
+            var actual = sut.UpdateOrderRow(initialOrderRow, replacementOrderRow);
             Assert.AreEqual(actual.Pizza, secondPizza);
             Assert.AreEqual(actual.Soda, secondSoda);
             var orderRowsHaveBeenUpdated = OrderRows.Rows
@@ -49,15 +40,12 @@ namespace PizzerianTests
             var replacementOrderRow = OrderRowFactory.RowFactory.
                 CreateOrderRow(secondPizza, secondSoda);
             var sut = OrderRowDecorator.RowDecorator;
-            var actual = sut.UpdateOrderRow(initialOrderRow.RowId, replacementOrderRow);
+            var actual = sut.ReplaceOrderRow(initialOrderRow.RowId, replacementOrderRow);
             Assert.AreEqual(actual.Pizza, secondPizza);
             Assert.AreEqual(actual.Soda, secondSoda);
             var orderRowsHaveBeenUpdated = OrderRows.Rows
                 .Contains(replacementOrderRow);
             Assert.IsTrue(orderRowsHaveBeenUpdated);
         }
-
-
-
     }
 }

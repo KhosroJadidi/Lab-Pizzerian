@@ -24,5 +24,30 @@ namespace Lab_3_Pizzerian.DataStorageClasses
                 Name = "Sprite",
                 Price = 25
             };
+
+        public static Soda None { get; } =
+            new Soda
+            {
+                Name = "None",
+                Price = 0
+            };
+
+        public static Soda[] AllSodas =>
+            new[]
+            {
+                CocaCola,
+                Fanta,
+                Sprite,
+                None
+            };
+
+        public static string[] SodaNames =>
+            new[]
+            {
+                CocaCola.Name,
+                Fanta.Name,
+                Sprite.Name,
+                None.Name
+            };
     }
 }

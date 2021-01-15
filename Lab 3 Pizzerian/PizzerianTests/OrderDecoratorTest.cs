@@ -4,12 +4,8 @@ using Lab_3_Pizzerian.Controller.Factories;
 using Lab_3_Pizzerian.DataStorageClasses;
 using Lab_3_Pizzerian.Models.Orders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PizzerianTests
 {
@@ -21,11 +17,10 @@ namespace PizzerianTests
         {
             var sut = OrderDecorator.Decorator;
             OrderFactory.Factory
-                .CreateOrder("Anders", firstOrderRows);
+                .CreateOrder(firstOrderRows);
             Orders.OrdersList.ForEach(order =>
                 {
                     Trace.WriteLine(order.Id);
-                    Trace.WriteLine(order.CustomersName);
                     order.OrderRows.ForEach(orderRow =>
                         {
                             Trace.WriteLine(orderRow.RowId);
@@ -46,11 +41,10 @@ namespace PizzerianTests
         {
             var sut = OrderDecorator.Decorator;
             OrderFactory.Factory
-                .CreateOrder("Anders", firstOrderRows);
+                .CreateOrder(firstOrderRows);
             Orders.OrdersList.ForEach(order =>
             {
                 Trace.WriteLine(order.Id);
-                Trace.WriteLine(order.CustomersName);
                 order.OrderRows.ForEach(orderRow =>
                 {
                     Trace.WriteLine(orderRow.RowId);
@@ -86,6 +80,6 @@ namespace PizzerianTests
                 .CreateOrderRow(Pizzas.Margerita,Sodas.Sprite)
         };
 
-        #endregion
+        #endregion Test Data Repository
     }
 }
